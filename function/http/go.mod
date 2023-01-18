@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/function/http
+module github.com/JCorpse96/contrib/function/http
 
 require (
 	github.com/pkg/errors v0.9.1 // indirect

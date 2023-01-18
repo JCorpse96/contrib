@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/trigger/loadtester
+module github.com/JCorpse96/contrib/trigger/loadtester
 
 require (
 	github.com/pkg/errors v0.9.1 // indirect

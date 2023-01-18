@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/function/json
+module github.com/JCorpse96/contrib/function/json
 
 go 1.16
 

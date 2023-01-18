@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/function/url
+module github.com/JCorpse96/contrib/function/url
 
 go 1.16
 

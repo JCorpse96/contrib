@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/function/math
+module github.com/JCorpse96/contrib/function/math
 
 go 1.16
 

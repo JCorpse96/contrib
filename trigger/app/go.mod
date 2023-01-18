@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/trigger/app
+module github.com/JCorpse96/contrib/trigger/app
 
 require github.com/project-flogo/core v1.0.0
 

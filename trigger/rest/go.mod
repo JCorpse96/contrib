@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/trigger/rest
+module github.com/JCorpse96/contrib/trigger/rest
 
 require (
 	github.com/julienschmidt/httprouter v1.3.0

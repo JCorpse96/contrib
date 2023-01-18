@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/function/array
+module github.com/JCorpse96/contrib/function/array
 
 require (
 	github.com/pkg/errors v0.9.1 // indirect
