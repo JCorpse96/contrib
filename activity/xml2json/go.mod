@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/activity/xml2json
+module github.com/JCorpse96/contrib/activity/xml2json
 
 require (
 	github.com/clbanning/mxj v1.8.4

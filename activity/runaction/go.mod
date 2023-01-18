@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/activity/runaction
+module github.com/JCorpse96/contrib/activity/runaction
 
 require (
 	github.com/pkg/errors v0.9.1 // indirect

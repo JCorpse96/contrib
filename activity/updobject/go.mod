@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/activity/updobject
+module github.com/JCorpse96/contrib/activity/updobject
 
 go 1.12
 

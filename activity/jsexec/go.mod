@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/activity/jsexec
+module github.com/JCorpse96/contrib/activity/jsexec
 
 require (
 	github.com/dlclark/regexp2 v1.2.0 // indirect

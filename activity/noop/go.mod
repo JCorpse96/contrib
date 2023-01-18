@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/activity/noop
+module github.com/JCorpse96/contrib/activity/noop
 
 require (
 	github.com/pkg/errors v0.9.1 // indirect

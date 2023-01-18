@@ -1,4 +1,4 @@
-module github.com/project-flogo/contrib/activity/appdata
+module github.com/JCorpse96/contrib/activity/appdata
 
 require (
 	github.com/pkg/errors v0.9.1 // indirect
