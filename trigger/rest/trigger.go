@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/JCorpse96/contrib/trigger/rest/cors"
 	"github.com/julienschmidt/httprouter"
-	"github.com/project-flogo/contrib/trigger/rest/cors"
 	"github.com/project-flogo/core/data/metadata"
 	"github.com/project-flogo/core/support/log"
 	"github.com/project-flogo/core/trigger"
@@ -49,11 +49,11 @@ func (*Factory) New(config *trigger.Config) (trigger.Trigger, error) {
 
 // Trigger REST trigger struct
 type Trigger struct {
-	server           *Server
-	settings         *Settings
-	id               string
-	logger           log.Logger
-//	serverInstanceID string
+	server   *Server
+	settings *Settings
+	id       string
+	logger   log.Logger
+	//	serverInstanceID string
 }
 
 func (t *Trigger) Initialize(ctx trigger.InitContext) error {

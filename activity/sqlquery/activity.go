@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/project-flogo/contrib/activity/sqlquery/util"
+	"github.com/JCorpse96/contrib/activity/sqlquery/util"
 	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/metadata"
 	"github.com/project-flogo/core/support/log"
@@ -211,7 +211,7 @@ func getResults(dbHelper util.DbHelper, rows *sql.Rows) ([][]interface{}, error)
 	return results, rows.Err()
 }
 
-//todo move to shared connection
+// todo move to shared connection
 func getConnection(s *Settings) (*sql.DB, error) {
 
 	db, err := sql.Open(s.DriverName, s.DataSourceName)
