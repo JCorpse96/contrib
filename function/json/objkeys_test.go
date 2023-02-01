@@ -5,43 +5,48 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/project-flogo/core/data/expression/function"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestfnObjKeys(t *testing.T) {
-	input := `{
-		"key1": 123,
-		"key2": {
-		  "nested": 345.45,
-		  "deepNesting": {
-			"key3": 678.567575676,
-			"key4": [
-			  {
-				"key5": 7987897.96878
-			  }
-			],
-			"key5": [1, 2, 3]
-		  }
-		},
-		"key3": [1, 2, 3],
-		"key4": [
-		  [1, 2],
-		  [3, 4],
-		  [3, 4, 5],
-		  [
-			3,
-			4,
-			{
-			  "key8": 7987897.96878
-			}
-		  ]
-		]
-	  }`
-	data := make(map[string]interface{})
-	err := json.Unmarshal([]byte(input), &data)
+const input = `{
+    "content": {
+    	"code": "123456",
+        "data": {
+            "type": "2",
+            "number": "0012111122223333444455556"
+        	},
+        "object": {
+            "entity": "11223",
+            "reference": "123321123",
+            "value": "3.45"
+        },
+        "location": "Location",
+    	"source": "B"
+    }
+}`
+
+const mapping = `{
+	"v3": {
+		"msg.id": 6,
+		"msg.data.type": 1,
+		"msg.data.number": 25,
+		"msg.object.entity": 5,
+		"msg.object.reference": 9,
+		"msg.object.value": 5,
+		"msg.location": 15,
+		"msg.source": 1
+	}
+}`
+
+func TestFnObjKeys(t *testing.T) {
+	//data := make(map[string]interface{})
+	var data interface{}
+	err := json.Unmarshal([]byte(mapping), &data)
 	assert.Nil(t, err)
 	f := &fnObjKeys{}
-	v, err := f.Eval(data)
-	assert.Nil(t, err)
+	v, err := function.Eval(f, data)
 	fmt.Println(v)
+	assert.Nil(t, err)
+
 }

@@ -1,0 +1,31 @@
+{
+  "name": "flogo-log",
+  "type": "flogo:activity",
+  "version": "0.10.0",
+  "title": "Log",
+  "description": "Logs a message",
+  "homepage": "https://github.com/JCorpse96/contrib/tree/master/activity/copybook",
+  "display": {
+    "icon": "log-icon.svg"
+  },
+  "input": [
+    {
+      "name": "message",
+      "type": "string",
+      "value": "",
+      "description": "The message to make the copybook"
+    },
+    {
+      "name": "bookStructure",
+      "type": "string",
+      "value": "",
+      "description": "Copybook structure"
+    },
+    {
+      "name": "usePrint",
+      "type": "boolean",
+      "value": false,
+      "description": "Use Print to stdout instead of built-in logger"
+    }
+  ]
+}
