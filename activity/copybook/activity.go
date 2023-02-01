@@ -8,6 +8,8 @@ import (
 	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/coerce"
 	"github.com/project-flogo/core/data/expression/function"
+	"github.com/JCorpse96/contrib/function/json"
+	"github.com/JCorpse96/contrib/function/padding"
 )
 
 func init() {
@@ -107,7 +109,8 @@ func get_array_elements(root_key []string, element_mapping string, copybook map[
 	element := get_value(data, strings.Split(element_mapping, ".")).([]interface{})
 	n_elements_req := len(element)
 	for i, e := range element {
-		element_keys := obj_keys(e.(map[string]interface{}), "")
+		element_keys := function.Eval(f, e.(map[string]interface{}))
+		//element_keys := obj_keys(e.(map[string]interface{}), "")
 		for _, ek := range element_keys {
 			sub_key := element_mapping + "." + ek
 			for _, k := range new_keys {
@@ -134,7 +137,8 @@ func get_array_elements(root_key []string, element_mapping string, copybook map[
 		i := 0
 		for i < (max_items - len(element)) {
 			for _, e := range new_obj {
-				elem := padding("", int(e.(map[string]interface{})["maxLength"].(float64)), "-")
+				elem := padding.fnPaddingRight("", int(e.(map[string]interface{})["maxLength"].(float64)), "-")
+				//elem := padding("", int(e.(map[string]interface{})["maxLength"].(float64)), "-")
 				filler += elem
 			}
 			i++
@@ -154,7 +158,8 @@ func get_element(key []string, copybook map[string]interface{}, data map[string]
 	if (element_type != "array") && (element_type != "element") {
 		element := get_value(data, strings.Split(element_mapping, ".")).(string)
 		element_length := get_length(append(root_key, "maxLength"), copybook)
-		padded_element := padding(element, element_length, "-")
+		padded_element := padding.fnPaddingRight(element, element_length, "-")
+		//padded_element := padding(element, element_length, "-")
 		return element_index, padded_element
 	} else if element_type == "array" {
 		elements := get_array_elements(root_key, element_mapping, copybook, data)
