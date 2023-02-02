@@ -1,12 +1,10 @@
 package testactivity
 
 import (
-	"fmt"
-
+	"github.com/JCorpse96/contrib/activity/testactivity/util"
 	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/coerce"
 	"github.com/project-flogo/core/data/metadata"
-	"github.com/JCorpse96/contrib/activity/testactivity/util"
 )
 
 func init() {
@@ -49,20 +47,20 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 		return true, err
 	}
 	data, _ := coerce.ToObject(input.Request)
-	fmt.Println(data)
+	//fmt.Println(data)
 
 	copy, _ := coerce.ToObject(input.Copybook)
-	fmt.Println(copy)
+	//fmt.Println(copy)
 
-	//fnObjKeys := json.fnObjKeys
-	//f := &fnObjKeys{}
-	//new_keys, _ := function.Eval(f, data)
-	new_keys := util.ObjKeys(data, "")
-	fmt.Println(new_keys)
+	keys := util.ObjKeys(copy, "")
+	//fmt.Println(keys)
+
+	elements := util.GetElements(keys, copy, data)
+	res := util.JoinElements(elements)
 
 	ctx.Logger().Debugf("Input: %s", input.Request)
 
-	output := &Output{Result: input.Request + input.Copybook}
+	output := &Output{Result: res}
 	err = ctx.SetOutputObject(output)
 	if err != nil {
 		return true, err

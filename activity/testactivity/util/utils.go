@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"sort"
 	"strings"
+
+	"github.com/project-flogo/core/data/coerce"
 )
 
 const request = `{
@@ -286,7 +288,7 @@ func get_element(key []string, copybook map[string]interface{}, data map[string]
 	element_mapping := get_mapping(mapping_key, copybook)
 	element_index := get_index(append(root_key, "index"), copybook)
 	if (element_type != "array") && (element_type != "element") {
-		element := get_value(data, strings.Split(element_mapping, ".")).(string)
+		element, _ := coerce.ToString(get_value(data, strings.Split(element_mapping, ".")))
 		element_length := get_length(append(root_key, "maxLength"), copybook)
 		padded_element := padding(element, element_length, "-")
 		return element_index, padded_element
@@ -339,15 +341,16 @@ func get_array_elements(root_key []string, element_mapping string, copybook map[
 			i++
 		}
 	}
-	val := join_elements(elements)
+	val := JoinElements(elements)
 	result := val + filler
 	return result
 }
 
-func get_elements(keys []string, copybook map[string]interface{}, data map[string]interface{}) map[int]string {
+func GetElements(keys []string, copybook map[string]interface{}, data map[string]interface{}) map[int]string {
 	elements := make(map[int]string)
 	for _, k := range keys {
 		if strings.Contains(k, "type") {
+			//fmt.Println(k)
 			i, element := get_element(strings.Split(k, "."), copybook, data)
 			if len(element) > 0 {
 				elements[i] = element
@@ -357,7 +360,7 @@ func get_elements(keys []string, copybook map[string]interface{}, data map[strin
 	return elements
 }
 
-func join_elements(data map[int]string) string {
+func JoinElements(data map[int]string) string {
 	concated_elements := ""
 	var indexes []int
 	for k := range data {
@@ -388,7 +391,7 @@ func get_mapping(key []string, copybook map[string]interface{}) string {
 
 func get_length(key []string, copybook map[string]interface{}) int {
 	if contains(key, "maxLength") {
-		val_length := get_value(copybook, key).(float64)
+		val_length, _ := coerce.ToInt(get_value(copybook, key))
 		length := int(val_length)
 		return length
 	}
@@ -397,7 +400,7 @@ func get_length(key []string, copybook map[string]interface{}) int {
 
 func get_index(key []string, copybook map[string]interface{}) int {
 	if contains(key, "index") {
-		val_index := get_value(copybook, key).(float64)
+		val_index, _ := coerce.ToInt(get_value(copybook, key))
 		index := int(val_index)
 		return index
 	}
@@ -422,11 +425,11 @@ func main() {
 	dataCopy := copyB.(map[string]interface{})
 	keys := ObjKeys(dataCopy, "")
 
-	elements := get_elements(keys, dataCopy, data)
+	elements := GetElements(keys, dataCopy, data)
 
 	fmt.Println()
 
-	copy := join_elements(elements)
+	copy := JoinElements(elements)
 
 	fmt.Println(copy)
 
