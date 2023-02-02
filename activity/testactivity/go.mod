@@ -1,4 +1,4 @@
-module activity/testactivity
+module github.com/JCorpse96/contrib/activity/testactivity
 
 go 1.19
 
