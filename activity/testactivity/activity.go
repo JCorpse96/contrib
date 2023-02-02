@@ -4,19 +4,21 @@ import (
 	"github.com/JCorpse96/contrib/activity/testactivity/util"
 	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/coerce"
-	"github.com/project-flogo/core/data/metadata"
+	//"github.com/project-flogo/core/data/metadata"
 )
 
 func init() {
 	_ = activity.Register(&Activity{}) //activity.Register(&Activity{}, New) to create instances using factory method 'New'
 }
 
-var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
+// var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
+var activityMd = activity.ToMetadata(&Input{}, &Output{})
 
 // New optional factory method, should be used if one activity instance per configuration is desired
+/*
 func New(ctx activity.InitContext) (activity.Activity, error) {
 
-	s := &Settings{}
+	s := &Settings{ASetting: "COPYBOOK"}
 	err := metadata.MapToStruct(ctx.Settings(), s, true)
 	if err != nil {
 		return nil, err
@@ -28,6 +30,7 @@ func New(ctx activity.InitContext) (activity.Activity, error) {
 
 	return act, nil
 }
+*/
 
 // Activity is an sample Activity that can be used as a base to create a custom activity
 type Activity struct {

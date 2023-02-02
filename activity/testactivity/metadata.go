@@ -2,9 +2,11 @@ package testactivity
 
 import "github.com/project-flogo/core/data/coerce"
 
+/*
 type Settings struct {
 	ASetting string `md:"aSetting,required"`
 }
+*/
 
 type Input struct {
 	Request  string `md:"request"`
