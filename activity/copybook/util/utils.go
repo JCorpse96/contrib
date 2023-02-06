@@ -6,6 +6,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/JCorpse96/contrib/function/padding/util"
 	"github.com/project-flogo/core/data/coerce"
 )
 
@@ -134,10 +135,16 @@ const copybook = `{
 	}
 }`
 
+/*
 func padding(value string, length int, padCharacter string) string {
 	var padCountInt = 1 + ((length - len(padCharacter)) / len(padCharacter))
 	var retStr = value + strings.Repeat(padCharacter, padCountInt)
 	return retStr[:length]
+}*/
+
+func padding(value string, length int, padCharacter string) string {
+	retStr := util.PaddingRight(value, length, padCharacter)
+	return retStr
 }
 
 func test(input string) (interface{}, error) {
