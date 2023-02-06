@@ -1,8 +1,7 @@
 package padding
 
 import (
-	"strings"
-
+	"github.com/JCorpse96/contrib/function/padding/util"
 	"github.com/project-flogo/core/data"
 	"github.com/project-flogo/core/data/expression/function"
 )
@@ -34,16 +33,11 @@ func (s *fnPaddingRight) Eval(in ...interface{}) (interface{}, error) {
 	//fmt.Println("length ", length)
 	//fmt.Println("padCharacter ", padCharacter)
 
-	//for i := len(value); i <= length; i++ {
-	//	output = padCharacter + value
-	//}
-
 	//fmt.Println("output ", output)
 	//return output, fmt.Errorf("fnPaddingLeft function must have three arguments")
 
-	var padCountInt = 1 + ((length - len(padCharacter)) / len(padCharacter))
-	var retStr = value + strings.Repeat(padCharacter, padCountInt)
-	//fmt.Println("retStr ", retStr[:length])
-	return retStr[:length], nil
+	retStr := util.PaddingRight(value, length, padCharacter)
+
+	return retStr, nil
 
 }
