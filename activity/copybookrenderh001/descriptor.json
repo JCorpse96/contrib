@@ -17,7 +17,7 @@
       "required": true
     },
     {
-      "name": "CPY-DATA-NUMBER",
+      "name": "CCPY-DATA-NUMBER",
       "type": "string",
       "required": true
     },
