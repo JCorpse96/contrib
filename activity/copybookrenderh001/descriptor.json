@@ -1,0 +1,76 @@
+{
+  "name": "flogo-copybookrenderh001",
+  "type": "flogo:activity",
+  "version": "0.0.1",
+  "title": "Render Copybook H001",
+  "description": "Transforms request body in rendered H001 copybook",
+  "homepage": "https://github.com/JCorpse96/contrib/tree/master/activity/copybookrenderh001",
+  "input": [
+    {
+      "name": "CPY-ID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-DATA-TYPE",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CCPY-DATA-NUMBER",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-OBJECT-ENTITY",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-OBJECT-REFERENCE",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-OBJECT-VALUE",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-DESTINATIONS",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-DESTINATIONS-ACC",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-DESTINATIONS-NAME",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-LOCATION",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CPY-SOURCE",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "request",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "output": [
+    {
+      "name": "rendered",
+      "type": "string"
+    }
+  ]
+}
