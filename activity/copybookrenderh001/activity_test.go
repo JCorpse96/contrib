@@ -3,8 +3,8 @@ package copybookrenderh001
 import (
 	"testing"
 
-	"github.com/JCorpse96/core/activity"
-	"github.com/JCorpse96/core/support/test"
+	"github.com/project-flogo/core/activity"
+	"github.com/project-flogo/core/support/test"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -55,7 +55,7 @@ func TestEval(t *testing.T) {
 
 	act := &Activity{}
 	tc := test.NewActivityContext(act.Metadata())
-	input := &Input{CPY_ID: "msg.id", CPY_DATA_TYPE: "msg.data.type", CCPY_DATA_NUMBER: "msg.data.number", CPY_OBJECT_ENTITY: "msg.object.entity", CPY_OBJECT_REFERENCE: "msg.object.reference", CPY_OBJECT_VALUE: "msg.object.value", CPY_DESTINATIONS: "msg.destinations", CPY_DESTINATIONS_ACC: "msg.destinations.number", CPY_DESTINATIONS_NAME: "msg.destinations.name", CPY_LOCATION: "msg.location", CPY_SOURCE: "msg.source", Request: data}
+	input := &Input{CPY_ID: "msg.id", CPY_DATA_TYPE: "msg.data.type", CPY_DATA_NUMBER: "msg.data.number", CPY_OBJECT_ENTITY: "msg.object.entity", CPY_OBJECT_REFERENCE: "msg.object.reference", CPY_OBJECT_VALUE: "msg.object.value", CPY_DESTINATIONS: "msg.destinations", CPY_DESTINATIONS_ACC: "msg.destinations.number", CPY_DESTINATIONS_NAME: "msg.destinations.name", CPY_LOCATION: "msg.location", CPY_SOURCE: "msg.source", Request: data}
 	err := tc.SetInputObject(input)
 	assert.Nil(t, err)
 

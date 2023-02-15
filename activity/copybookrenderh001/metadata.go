@@ -5,7 +5,7 @@ import "github.com/JCorpse96/core/data/coerce"
 type Input struct {
 	CPY_ID                string `md:"CPY-ID"`
 	CPY_DATA_TYPE         string `md:"CPY-DATA-TYPE"`
-	CCPY_DATA_NUMBER      string `md:"CCPY-DATA-NUMBER"`
+	CPY_DATA_NUMBER       string `md:"CPY-DATA-NUMBER"`
 	CPY_OBJECT_ENTITY     string `md:"CPY-OBJECT-ENTITY"`
 	CPY_OBJECT_REFERENCE  string `md:"CPY-OBJECT-REFERENCE"`
 	CPY_OBJECT_VALUE      string `md:"CPY-OBJECT-VALUE"`
@@ -20,7 +20,7 @@ type Input struct {
 func (i *Input) FromMap(values map[string]interface{}) error {
 	i.CPY_ID, _ = coerce.ToString(values["CPY-ID"])
 	i.CPY_DATA_TYPE, _ = coerce.ToString(values["CPY-DATA-TYPE"])
-	i.CCPY_DATA_NUMBER, _ = coerce.ToString(values["CCPY-DATA-NUMBER"])
+	i.CPY_DATA_NUMBER, _ = coerce.ToString(values["CPY-DATA-NUMBER"])
 	i.CPY_OBJECT_ENTITY, _ = coerce.ToString(values["CPY-OBJECT-ENTITY"])
 	i.CPY_OBJECT_REFERENCE, _ = coerce.ToString(values["CPY-OBJECT-REFERENCE"])
 	i.CPY_OBJECT_VALUE, _ = coerce.ToString(values["CPY-OBJECT-VALUE"])
@@ -37,7 +37,7 @@ func (i *Input) ToMap() map[string]interface{} {
 	return map[string]interface{}{
 		"CPY-ID":                i.CPY_ID,
 		"CPY-DATA-TYPE":         i.CPY_DATA_TYPE,
-		"CCPY-DATA-NUMBER":      i.CCPY_DATA_NUMBER,
+		"CPY-DATA-NUMBER":       i.CPY_DATA_NUMBER,
 		"CPY-OBJECT-ENTITY":     i.CPY_OBJECT_ENTITY,
 		"CPY-OBJECT-REFERENCE":  i.CPY_OBJECT_REFERENCE,
 		"CPY-OBJECT-VALUE":      i.CPY_OBJECT_VALUE,

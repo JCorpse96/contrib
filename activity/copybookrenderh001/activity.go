@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/JCorpse96/core/activity"
 	"github.com/JCorpse96/core/data/copybook"
+	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/coerce"
 )
 
@@ -19,7 +19,7 @@ var cpy_id = copybook.Element{ElementIndex: 0, ElementName: "CPY_ID", ElementMax
 
 var cpy_data_type = copybook.Element{ElementIndex: 1, ElementName: "CPY_DATA_TYPE", ElementMaxLength: 4, ElementFormat: copybook.Integer{TypeOf: "number"}}
 
-var cpy_data_number = copybook.Element{ElementIndex: 2, ElementName: "CCPY_DATA_NUMBER", ElementMaxLength: 30, ElementFormat: copybook.Integer{TypeOf: "number"}}
+var cpy_data_number = copybook.Element{ElementIndex: 2, ElementName: "CPY_DATA_NUMBER", ElementMaxLength: 30, ElementFormat: copybook.Integer{TypeOf: "number"}}
 
 var cpy_object_entity = copybook.Element{ElementIndex: 3, ElementName: "CPY_OBJECT_ENTITY", ElementMaxLength: 8, ElementFormat: copybook.Integer{TypeOf: "number"}}
 
