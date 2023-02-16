@@ -5,6 +5,9 @@
   "title": "Render Copybook H001",
   "description": "Transforms request body in rendered H001 copybook",
   "homepage": "https://github.com/JCorpse96/contrib/tree/master/activity/copybookrenderh001",
+  "display": {
+    "icon": "copybook-icon.svg"
+  },
   "input": [
     {
       "name": "CPY-ID",
