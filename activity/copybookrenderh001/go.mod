@@ -4,7 +4,6 @@ go 1.19
 
 require (
 	github.com/JCorpse96/core v0.0.0-20230214135210-0a944fc9462e
-	github.com/project-flogo/core v1.6.4
 	github.com/stretchr/testify v1.8.1
 )
 

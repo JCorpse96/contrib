@@ -1,10 +1,11 @@
 package copybookrenderh001
 
 import (
+	"fmt"
 	"testing"
 
-	"github.com/project-flogo/core/activity"
-	"github.com/project-flogo/core/support/test"
+	"github.com/JCorpse96/core/activity"
+	"github.com/JCorpse96/core/support/test"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -46,6 +47,7 @@ const data = `{
 func TestRegister(t *testing.T) {
 
 	ref := activity.GetRef(&Activity{})
+	fmt.Println(ref)
 	act := activity.Get(ref)
 
 	assert.NotNil(t, act)
