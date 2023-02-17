@@ -2,6 +2,7 @@ package copybookrenderh001
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/JCorpse96/core/data/copybook"
 	"github.com/project-flogo/core/activity"
@@ -44,6 +45,10 @@ type H001 struct {
 	copybook.HXXX `json:"H001"`
 	jsonString    string
 	mapStruct     map[string]interface{}
+}
+
+func (h H001) getName() string {
+	return "H001"
 }
 
 func (h H001) setJsonString() {
@@ -93,6 +98,8 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 	if err != nil {
 		return true, err
 	}
+
+	fmt.Println(h001.getName())
 
 	var message interface{}
 	message, _ = coerce.ToObject(input.Request)
