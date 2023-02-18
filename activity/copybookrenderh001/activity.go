@@ -2,10 +2,11 @@ package copybookrenderh001
 
 import (
 	"encoding/json"
+	"fmt"
 
-	"github.com/JCorpse96/core/activity"
-	"github.com/JCorpse96/core/data/coerce"
 	"github.com/JCorpse96/core/data/copybook"
+	"github.com/project-flogo/core/activity"
+	"github.com/project-flogo/core/data/coerce"
 )
 
 func init() {
@@ -98,7 +99,7 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 		return true, err
 	}
 
-	//fmt.Println(h001.getName())
+	fmt.Println(h001.getName())
 
 	var message interface{}
 	message, _ = coerce.ToObject(input.Request)
